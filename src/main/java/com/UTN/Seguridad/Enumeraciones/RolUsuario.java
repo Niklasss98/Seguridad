@@ -1,4 +1,4 @@
-package com.UTN.Seguridad.User;
+package com.UTN.Seguridad.Enumeraciones;
 
 public enum RolUsuario {
     EMPLEADO,

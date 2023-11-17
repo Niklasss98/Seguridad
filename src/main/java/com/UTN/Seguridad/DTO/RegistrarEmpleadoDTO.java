@@ -2,8 +2,7 @@ package com.UTN.Seguridad.DTO;
 
 
 import com.UTN.Seguridad.Entidades.Domicilio;
-import com.UTN.Seguridad.Enumeraciones.RolEmpleado;
-import com.UTN.Seguridad.User.RolUsuario;
+import com.UTN.Seguridad.Enumeraciones.RolUsuario;
 import lombok.Data;
 
 import java.util.List;

@@ -2,7 +2,7 @@ package com.UTN.Seguridad.Entidades;
 
 
 
-import com.UTN.Seguridad.User.RolUsuario;
+import com.UTN.Seguridad.Enumeraciones.RolUsuario;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;

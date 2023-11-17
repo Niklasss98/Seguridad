@@ -8,7 +8,7 @@ import com.UTN.Seguridad.JWT.JwtService;
 import com.UTN.Seguridad.Repositorios.ClienteRepository;
 import com.UTN.Seguridad.Repositorios.EmpleadoRepository;
 import com.UTN.Seguridad.Repositorios.UsuarioRepository;
-import com.UTN.Seguridad.User.RolUsuario;
+import com.UTN.Seguridad.Enumeraciones.RolUsuario;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
