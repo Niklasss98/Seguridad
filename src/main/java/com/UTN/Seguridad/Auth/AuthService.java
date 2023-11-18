@@ -40,12 +40,6 @@ public class AuthService {
 
     public AuthResponse registerCliente(RegisterClienteRequest request) {
 
-        Usuario usuario = Usuario.builder()
-                .username(request.getUsername())
-                .password(passwordEncoder.encode(request.getPassword()))
-                .role(RolUsuario.CLIENTE)
-                .build();
-
         Cliente cliente = Cliente.builder()
                 .email(request.getEmail())
                 .apellido(request.getApellido())
@@ -54,25 +48,31 @@ public class AuthService {
                 //Faltan Domcilios
                 .build();
 
-        cliente.setUsuario(usuario);
+        Usuario user = Usuario.builder()
+                .username(request.getUsername())
+                .password(passwordEncoder.encode(request.getPassword()))
+                .role(RolUsuario.CLIENTE)
+                .build();
+
+
+
+        cliente.setUsuario(user);
         clienteRepository.save(cliente);
 
+        /*
+        user.setCliente(cliente);
+*/
+        usuarioRepository.save(user);
+
         return AuthResponse.builder()
-                .token(jwtService.getToken(usuario))
+                .token(jwtService.getToken(user))
                 .build();
 
     }
 
     public AuthResponse registerEmpleado(RegisterEmpleadoRequest request) {
 
-        Usuario usuario = Usuario.builder()
-                .username(request.getUsername())
-                .password(passwordEncoder.encode(request.getPassword()))
-                .role(RolUsuario.EMPLEADO)
-                .build();
-
-        Empleado empleado = Empleado.builder()
-                .usuario(usuario)                       //Relacion 1 a 1 con usuario, puede q no vaya
+        Empleado empleado = Empleado.builder()                 //Relacion 1 a 1 con usuario, puede q no vaya
                 .nombre(request.getNombre())
                 .apellido(request.getApellido())
                 .telefono(request.getTelefono())
@@ -81,12 +81,21 @@ public class AuthService {
                 //Domicilios
                 .build();
 
-        empleado.setUsuario(usuario);
+        Usuario user = Usuario.builder()
+                .username(request.getUsername())
+                .password(passwordEncoder.encode(request.getPassword()))
+                .role(RolUsuario.EMPLEADO)
+                .build();
+
+
+
+        empleado.setUsuario(user);
         empleadoRepository.save(empleado);
+        usuarioRepository.save(user);
 
 
         return AuthResponse.builder()
-                .token(jwtService.getToken(usuario))
+                .token(jwtService.getToken(user))
                 .build();
     }
 }

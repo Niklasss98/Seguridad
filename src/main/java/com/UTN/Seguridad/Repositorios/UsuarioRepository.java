@@ -15,18 +15,18 @@ import java.util.Optional;
 @Repository
 public interface UsuarioRepository extends BaseRepository<Usuario,Long> {
 
-    @Query("SELECT u FROM Usuario u WHERE u.id = :id")
+    @Query("SELECT u FROM Usuario u WHERE u.id = %:id%")
     Usuario buscarPorId(@Param("id") Long id);
-    @Query("SELECT u FROM Usuario u WHERE u.username = :nombre")
+    @Query("SELECT u FROM Usuario u WHERE u.username = %:nombre%")
     List<Usuario> buscarPornombre(@Param("nombre") String nombre);
 
-    @Query("SELECT u FROM Usuario u WHERE u.role = :rol")
+    @Query("SELECT u FROM Usuario u WHERE u.role = %:rol%")
     List<Usuario> buscarPorRol(@Param("rol") String rol);
 
-    @Query("SELECT u FROM Usuario u WHERE u.username = :nombre")
+    @Query("SELECT u FROM Usuario u WHERE u.username = %:nombre%")
     Page<Usuario> buscarPornombre(@Param("nombre") String nombre, Pageable pageable);
 
-    @Query("SELECT u FROM Usuario u WHERE u.role = :rol")
+    @Query("SELECT u FROM Usuario u WHERE u.role = %:rol%")
     Page<Usuario> buscarPorRol(@Param("rol") String rol, Pageable pageable);
 
     Optional<Usuario> findByUsername(String username); // es casi lo mismo que buscarPornombre

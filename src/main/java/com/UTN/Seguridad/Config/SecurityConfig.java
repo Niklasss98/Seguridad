@@ -38,6 +38,7 @@ public class SecurityConfig {
                                 authRequest
                                         //Autenticacion
                                         .requestMatchers(new AntPathRequestMatcher("/auth/**")).permitAll()
+                                        .requestMatchers(new AntPathRequestMatcher("/api/v1/**")).permitAll()
                                         //Matchea con todos los registros publicos, todos los que quieran ingresar a la pag
 
 

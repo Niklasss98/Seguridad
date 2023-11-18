@@ -17,9 +17,9 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 //Usamos la siguiente etiqueta para hacer un update de sql al atributo "DELETED" a TRUE
-@SQLDelete(sql = "UPDATE cliente SET deleted = true WHERE id=?")
+//@SQLDelete(sql = "UPDATE cliente SET deleted = true WHERE id=?")
 //Siempre que busquemos entidades, no van a hacer incluidas las que tengan su atributo deleted= true
-@Where(clause = "deleted=false")
+//@Where(clause = "deleted=false")
 public class Cliente extends BaseEntidad{
 
     @Column(name = "nombre", nullable = false)
@@ -41,6 +41,7 @@ public class Cliente extends BaseEntidad{
     //@JsonManagedReference(value = "pedido-cliente")
     //@OneToMany(mappedBy = "cliente", cascade = CascadeType.PERSIST)
     //private List<Pedido> pedidos = new ArrayList<Pedido>();
+
 
     //Relacion one to one con usuario (foreign key usuario)
     @OneToOne(cascade = CascadeType.ALL)

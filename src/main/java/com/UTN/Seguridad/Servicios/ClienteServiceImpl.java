@@ -77,7 +77,7 @@ implements ClienteService {
             clienteDTO.setEmail(cliente.getEmail());
             clienteDTO.setTelefono(cliente.getTelefono());
             clienteDTO.setDomicilio(cliente.getDomicilios());
-            clienteDTO.setContrasena(cliente.getUsuario().getPassword());
+            //clienteDTO.setContrasena(cliente.getUsuario().getPassword());
 
             return clienteDTO;
          }catch (Exception e){
